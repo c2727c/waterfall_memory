@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Dept.xml 在com.tarena.entity 包中  -->  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+<!-- namespace 的值是 接口
+  每个Mapper 接口对应一个配置文件  -->
+  
+<mapper namespace="com.example.waterfall_memory.dao.FallDao">
+    <resultMap type="com.example.waterfall_memory.dto.EChart" id="chartMap">
+		<collection property="dataAxis" column="count_point"
+			ofType="String"
+			javaType="java.util.ArrayList"
+			select = "selectDataAxis"
+			>
+		</collection>
+		<collection property="data" column="avilable_count"
+			ofType="Integer"
+			javaType="java.util.ArrayList">
+		</collection>
+	</resultMap>
+	<select id="getMyFall"
+		resultType="com.example.waterfall_memory.dto.FallNode">
+		SELECT wId,word,nDrag,ntId,ntColor FROM  node_type NATURAL JOIN node 
+		NATURAL JOIN words WHERE uId = #{uId} AND nStart&lt;#{date} AND nEnd>#{date};
+	</select>
+	
+
+</mapper>
