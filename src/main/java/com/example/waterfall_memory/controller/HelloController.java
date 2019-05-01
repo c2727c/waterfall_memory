@@ -26,7 +26,7 @@ public class HelloController {
 	
 	@RequestMapping(name="/hello",method=RequestMethod.GET)
 	public String hello() {
-		String dateInString = "2019-03-25";
+		String dateInString = "hello!";
 		return dateInString;
 	}
 }

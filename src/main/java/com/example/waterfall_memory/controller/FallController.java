@@ -17,9 +17,10 @@ import com.example.waterfall_memory.util.NoteResult;
 public class FallController {
 	@Resource
 	private FallService service;	
-	//获取单词循环池
-	@RequestMapping("/myfall.do")
-	public NoteResult<List<FallNode>> getMyFall(String uId,String dateInString) {
+	//获取单词循环池//前端向后端请求所有正在记忆中的Node。（正在记忆中判断标准：记忆点数>0）
+	@RequestMapping("/infall.do")
+	public NoteResult<List<FallNode>> inFall(String uId) {
+		String dateInString="2019-04-27";
 		NoteResult<List<FallNode>> nr = new NoteResult<List<FallNode>>();
 		try {
 			nr.setAll(0,"success",service.getMyFall(uId, Date.valueOf(dateInString)));
@@ -29,10 +30,17 @@ public class FallController {
 		}
 		return nr;
 	}
+	//当单词退出视线时，进行点数换算并更新到前台本地数据结构同时更新到数据库。//此时如果发现单词到时间了，则要将其从本地单词池移除。
+	@RequestMapping("/outfall.do")
+	public NoteResult<Object> outFall(String uId,String wId) {
+		NoteResult<Object> nr = new NoteResult<Object>();
+		return nr;
+	}
+	
 	
 	//打开详情页
 	@RequestMapping("/wordDetail.do")
-	public NoteResult wordDetail(String uId,String word) {
+	public NoteResult wordDetail(String uId,String wId) {
 		NoteResult<List<FallNode>> nr = new NoteResult<List<FallNode>>();
 		return nr;
 	}

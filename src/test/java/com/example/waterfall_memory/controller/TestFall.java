@@ -24,16 +24,9 @@ public class TestFall {
 	@Test
 	public void testFall() {
 		NoteResult<List<FallNode>> nr = new NoteResult<List<FallNode>>();
-		nr = con.getMyFall("qqq", "2019-04-27");
+		nr = con.inFall("qqq");
 		nr.printJSON();	
 	}
-	
-	//怎么实现适时加入瀑布、适时退出瀑布？
-	//每次用户对结点进行向后拖拽操作，就会导致其退出瀑布时间延长（修改nEnd）。
-	//对结点进行向前拖拽、手动翻牌操作，导致其退出瀑布时间提前。
-	//近期推拽次数和总拖拽次数的不同
-	//在退出（到达退出时间时），应设置其下一次进入瀑布时间和退出瀑布时间
-		//选择所有退出时间在当前时间之前的结点，对它们进行重安排
-	
 
+	
 }
