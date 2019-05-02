@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Dept.xml 在com.tarena.entity 包中  -->  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+<!-- namespace 的值是 接口
+  每个Mapper 接口对应一个配置文件  -->
+  
+<mapper namespace="com.example.waterfall_memory.dao.RelaDao">
+  
+	<insert id="addRela" parameterType="com.example.waterfall_memory.entity.Rela">
+	insert into `rela_user` values 
+			(#{openId},#{wId1},#{wId2},#{rtId},#{rWeight}),(#{openId},#{wId2},#{wId1},#{rtId},#{rWeight});
+
+	</insert>
+	<delete id="deleteRela" parameterType="com.example.waterfall_memory.entity.Rela">
+	delete from `rela_user` 
+	where openId=#{openId} and(wId1=#{wId1} and wId2=#{wId2} or wId1=#{wId2} and wId2=#{wId1});
+	</delete>
+	<update id="updateRela" 
+		parameterType="com.example.waterfall_memory.entity.Rela">
+		update node
+			<set>
+			    nState=#{nState},
+			    ntId=#{ntId},
+			</set>
+				where openId=#{openId} and(wId1=#{wId1} and wId2=#{wId2} or wId1=#{wId2} and wId2=#{wId1});
+	</update>
+	<select id="relaWords">
+	SELECT node.* FROM rela_user,node
+	WHERE rela_user.wId1=#{wId1} AND rela_user.`openId`=#{openId}
+	AND node.wId=wId2 AND node.openId=rela_user.`openId`;
+	</select>
+</mapper>

@@ -7,18 +7,6 @@
   每个Mapper 接口对应一个配置文件  -->
   
 <mapper namespace="com.example.waterfall_memory.dao.FallDao">
-    <resultMap type="com.example.waterfall_memory.dto.EChart" id="chartMap">
-		<collection property="dataAxis" column="count_point"
-			ofType="String"
-			javaType="java.util.ArrayList"
-			select = "selectDataAxis"
-			>
-		</collection>
-		<collection property="data" column="avilable_count"
-			ofType="Integer"
-			javaType="java.util.ArrayList">
-		</collection>
-	</resultMap>
 	<select id="getMyFall"
 		resultType="com.example.waterfall_memory.dto.FallNode">
 		SELECT word,node.* FROM  node_type NATURAL JOIN node NATURAL JOIN words 

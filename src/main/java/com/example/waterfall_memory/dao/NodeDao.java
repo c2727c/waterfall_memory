@@ -11,6 +11,6 @@ public interface NodeDao {
 
 	public int updateNode(Node node);
 
-	public int deleteNode(List<Node> nl);
+	public int deleteNode(Node node);
 
 }

@@ -4,12 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
+
 import com.example.waterfall_memory.dao.FallDao;
 import com.example.waterfall_memory.dao.NodeDao;
 import com.example.waterfall_memory.entity.Node;
 import com.example.waterfall_memory.service.NodeService;
 import com.example.waterfall_memory.util.NoteResult;
-
+@Service("nodeService")
 public class NodeServiceImple implements NodeService{
 	@Resource
 	private NodeDao dao;
@@ -28,8 +30,10 @@ public class NodeServiceImple implements NodeService{
 
 	@Override
 	public Object deleteNode(List<Node> nl) {
-		// TODO Auto-generated method stub
-		return dao.deleteNode(nl);
+		for(Node n:nl) {
+			dao.deleteNode(n);
+		}
+		return null;
 	}
 
 }

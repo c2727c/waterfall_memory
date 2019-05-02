@@ -16,8 +16,29 @@ public class Node {
 	}
 	public Node(String openId,String wId) {
 		super();
+		this.openId = openId;
+		this.wId = wId;
+		this.nPoint = 10;//FIXME 应写入配置文件
+		this.nPointTime = LocalDateTime.now();//当前时间
+		this.nDrag = 0;
+		this.nState = 0;
+		this.ntId = "default";
+		this.nAddTime = LocalDateTime.now();
+	
 	}
 
+	public Node(String wId, String openId, double nPoint, LocalDateTime nPointTime, int nDrag, int nState, String ntId,
+			LocalDateTime nAddTime) {
+		super();
+		this.wId = wId;
+		this.openId = openId;
+		this.nPoint = nPoint;
+		this.nPointTime = nPointTime;
+		this.nDrag = nDrag;
+		this.nState = nState;
+		this.ntId = ntId;
+		this.nAddTime = nAddTime;
+	}
 	public String getOpenId() {
 		return openId;
 	}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Dept.xml 在com.tarena.entity 包中  -->  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+<!-- namespace 的值是 接口
+  每个Mapper 接口对应一个配置文件  -->
+  
+<mapper namespace="com.example.waterfall_memory.dao.NodeDao">
+	<insert id="addNode" parameterType="java.util.ArrayList">
+	insert into `node` values
+		<foreach collection="list" item="node" separator=",">
+			(#{node.wId},#{node.openId},#{node.nPoint},#{node.nPointTime},#{node.nDrag},#{node.nState},#{node.ntId},#{node.nAddTime})
+		</foreach>
+	</insert>
+	<delete id="deleteNode" parameterType="java.util.ArrayList">
+	delete from `node` where wId = #{wId} and openId=#{openId};
+	</delete>
+	<update id="updateNode" 
+		parameterType="com.example.waterfall_memory.entity.Node">
+		update node
+			<set>
+			    nState=#{nState},
+			    ntId=#{ntId},
+			</set>
+				where wId=#{wId} and openId=#{openId};
+	</update>
+</mapper>
