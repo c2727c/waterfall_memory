@@ -9,7 +9,7 @@
 <mapper namespace="com.example.waterfall_memory.dao.FallDao">
 	<select id="getMyFall"
 		resultType="com.example.waterfall_memory.dto.FallNode">
-		SELECT word,node.* FROM  node_type NATURAL JOIN node NATURAL JOIN words 
+		SELECT node.* FROM  node_type NATURAL JOIN node NATURAL JOIN words 
 		WHERE openId = #{openId}
 		AND ((TIMESTAMPDIFF(SECOND,nPointTime,#{time}))/100-nPoint)>0;
 	</select>

@@ -1,6 +1,7 @@
 package com.example.waterfall_memory.dao;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.waterfall_memory.dto.AvilableCount;
 import com.example.waterfall_memory.entity.Node;
+import com.example.waterfall_memory.entity.Rela;
 import com.example.waterfall_memory.util.NoteResult;
 
 @RunWith(SpringRunner.class)
@@ -50,26 +52,36 @@ public class DaoTest {
 	}
 	@Test
 	public void addRela() {
-		List<Node> nl = new ArrayList<Node>();
-		nl.add(new Node("qqq","abacus"));
-//		nl.add(new Node("qqq","abbreviation"));
-		nodeDao.addNode(nl);
+//		relaDao.addRela(new Rela("qqq","abbreviation","abolish"));
+		relaDao.addRela(new Rela("qqq","abacus","abolish"));
 	}
 	@Test
 	public void updateRela() {
-		Node n = new Node("qqq","abacus");
-		n.setNtId("a");
-		nodeDao.updateNode(n);
+		Rela r = new Rela("qqq","abbreviation","abolish");
+		r.setrWeight(20);
+		relaDao.updateRela(r);
 	}
 	@Test
 	public void deleteRela() {
-		List<Node> nl = new ArrayList<Node>();
-		nodeDao.deleteNode(new Node("qqq","abacus"));
+		relaDao.deleteRela(new Rela("qqq","abbreviation","abolish"));
+	}
+	@Test//FIXME
+	public void relaWords() {
+		relaDao.relaWords("qqq","abolish");
+	}
+	
+	@Test
+	public void getFall() {
+		fallDao.getMyFall("qqq", LocalDateTime.now());
 	}
 	@Test
-	public void relaWords() {
-		List<Node> nl = new ArrayList<Node>();
-		nodeDao.deleteNode(new Node("qqq","abacus"));
+	public void outFall() {
+		Node n = new Node("qqq","abacus");
+		fallDao.updateNode(n);
+	}
+	@Test
+	public void wordDetail() {
+		fallDao.wordDetail("abacus");
 	}
 
 }

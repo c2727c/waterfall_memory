@@ -19,14 +19,15 @@
 	</delete>
 	<update id="updateRela" 
 		parameterType="com.example.waterfall_memory.entity.Rela">
-		update node
+		update rela_user
 			<set>
-			    nState=#{nState},
-			    ntId=#{ntId},
+			    rWeight=#{rWeight},
+			    rtId=#{rtId},
 			</set>
 				where openId=#{openId} and(wId1=#{wId1} and wId2=#{wId2} or wId1=#{wId2} and wId2=#{wId1});
 	</update>
-	<select id="relaWords">
+	<select id="relaWords"
+	resultType="com.example.waterfall_memory.entity.Node">
 	SELECT node.* FROM rela_user,node
 	WHERE rela_user.wId1=#{wId1} AND rela_user.`openId`=#{openId}
 	AND node.wId=wId2 AND node.openId=rela_user.`openId`;

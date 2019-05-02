@@ -9,10 +9,13 @@ import com.example.waterfall_memory.entity.Rela;
 
 public interface RelaDao {
 
-	public Object addRela(Rela rela);
+	public int addRela(Rela rela);
 
-	public Object deleteRela(Rela rela);
-
+	public int deleteRela(Rela rela);
+	
+	public int updateRela(Rela rela);
+	
+	//FIXME 
 	public List<Node> relaWords(@Param("openId")String openId, @Param("wId1")String wId1);
 
 }

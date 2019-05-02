@@ -5,11 +5,19 @@ public class Rela {
 	private String wId1;
 	private String wId2;
 	private String rtId;
-	private String rWeight;
+	private int rWeight;
 	public Rela() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Rela(String openId, String wId1, String wId2) {
+		super();
+		this.openId = openId;
+		this.wId1 = wId1;
+		this.wId2 = wId2;
+	}
+
 	public String getOpenId() {
 		return openId;
 	}
@@ -34,10 +42,10 @@ public class Rela {
 	public void setRtId(String rtId) {
 		this.rtId = rtId;
 	}
-	public String getrWeight() {
+	public int getrWeight() {
 		return rWeight;
 	}
-	public void setrWeight(String rWeight) {
+	public void setrWeight(int rWeight) {
 		this.rWeight = rWeight;
 	}
 
