@@ -30,6 +30,14 @@ public class RelationController {
 		NoteResult<Object> nr = new NoteResult<Object>();
 		return nr;
 	}
+	
+	@RequestMapping("/relaWords.do")//返回相关词列表//1级/2级//关系
+	public NoteResult<List<Node>> relaWords(String uId,String wId) {
+		NoteResult<List<Node>> nr = new NoteResult<List<Node>>();
+		return nr;
+	}
+	
+	
 
 
 }

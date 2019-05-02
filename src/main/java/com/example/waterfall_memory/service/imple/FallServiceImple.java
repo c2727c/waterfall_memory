@@ -1,6 +1,7 @@
 package com.example.waterfall_memory.service.imple;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -15,7 +16,7 @@ public class FallServiceImple implements FallService{
 	@Resource
 	private FallDao dao;
 	@Override
-	public List<FallNode> getMyFall(String uId, Date date) {
+	public List<FallNode> getMyFall(String uId, LocalDate date) {
 		
 		return dao.getMyFall(uId, date);
 	}

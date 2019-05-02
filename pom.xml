@@ -90,6 +90,22 @@
 			<version>2.5</version>
 		</dependency>
 		
+		<!-- 两个工具类中用到的依赖 加密解密 -->
+		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
+		<dependency>
+		    <groupId>org.bouncycastle</groupId>
+		    <artifactId>bcprov-jdk15on</artifactId>
+		    <version>1.61</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+		    <groupId>commons-codec</groupId>
+		    <artifactId>commons-codec</artifactId>
+		    <version>1.12</version>
+		</dependency>
+		
+		
+		
 	</dependencies>
 
 	<build>
