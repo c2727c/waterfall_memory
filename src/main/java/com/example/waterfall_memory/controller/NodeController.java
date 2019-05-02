@@ -1,39 +1,66 @@
 package com.example.waterfall_memory.controller;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-
+import com.example.waterfall_memory.entity.Node;
 import com.example.waterfall_memory.service.FallService;
+import com.example.waterfall_memory.service.NodeService;
 import com.example.waterfall_memory.util.NoteResult;
-
-import ch.qos.logback.core.pattern.parser.Node;
 
 @RestController
 public class NodeController {
 	@Resource
-	private FallService service;
+	private NodeService service;
 	
 	@RequestMapping("/addNode.do")
-	public NoteResult<Object> addNode(String uId,String wIdList) {
+	public NoteResult<Object> addNode(String openId,String wIdList) {
+		String[] wIds = wIdList.split(",");
+		List<Node> nl = new ArrayList<Node>();
+		for(String wId:wIds) {
+			nl.add(new Node(openId,wId));
+		}
 		NoteResult<Object> nr = new NoteResult<Object>();
+		try {
+			nr.setAll(0,"success",service.addNode(nl));
+		} catch (Exception e) {
+			e.printStackTrace();
+			nr.setAll(-1, "error", null);
+		}
 		return nr;
 	}
 	
 	@RequestMapping("/updateNode.do")
-	public NoteResult<Object> updateNode(String uId,Node node) {
+	public NoteResult<Object> updateNode(Node node) {
 		NoteResult<Object> nr = new NoteResult<Object>();
+		try {
+			nr.setAll(0,"success",service.updateNode(node));
+		} catch (Exception e) {
+			e.printStackTrace();
+			nr.setAll(-1, "error", null);
+		}
 		return nr;
 	}
 	
 	@RequestMapping("/deleteNode.do")
-	public NoteResult<Object> deleteNode(String uId,String wIdList) {
+	public NoteResult<Object> deleteNode(String openId,String wIdList) {
+		String[] wIds = wIdList.split(",");
+		List<Node> nl = new ArrayList<Node>();
+		for(String wId:wIds) {
+			nl.add(new Node(openId,wId));
+		}
 		NoteResult<Object> nr = new NoteResult<Object>();
+		try {
+			nr.setAll(0,"success",service.deleteNode(nl));
+		} catch (Exception e) {
+			e.printStackTrace();
+			nr.setAll(-1, "error", null);
+		}
 		return nr;
 	}
 

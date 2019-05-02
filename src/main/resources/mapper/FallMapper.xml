@@ -21,9 +21,23 @@
 	</resultMap>
 	<select id="getMyFall"
 		resultType="com.example.waterfall_memory.dto.FallNode">
-		SELECT wId,word,nDrag,ntId,ntColor FROM  node_type NATURAL JOIN node 
-		NATURAL JOIN words WHERE uId = #{uId} AND nStart&lt;#{date} AND nEnd>#{date};
+		SELECT word,node.* FROM  node_type NATURAL JOIN node NATURAL JOIN words 
+		WHERE openId = #{openId}
+		AND ((TIMESTAMPDIFF(SECOND,nPointTime,#{time}))/100-nPoint)>0;
 	</select>
-	
+	<select id="wordDetail"
+	resultType="com.example.waterfall_memory.entity.Word">
+	SELECT * FROM words WHERE wId=#{wId};
+	</select>
 
+	<update id="updateNode" 
+		parameterType="com.example.waterfall_memory.entity.Node">
+		update node
+			<set>
+			    nPoint=#{nPoint},
+			    nPointTime=#{nPointTime},
+			    nDrag=#{nDrag},
+			</set>
+				where wId=#{wId} and openId=#{openId};
+	</update>
 </mapper>

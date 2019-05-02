@@ -1,25 +1,27 @@
 package com.example.waterfall_memory.dto;
 
+import java.time.LocalDateTime;
+
 public class FallNode {
-	private int wId;
-	private String word;
+	private String wId;
+	private double nPoint;
+	private LocalDateTime nPointTime;
 	private int nDrag;
-	private int ntId;
+	private int nState;
+	private String ntId;
 	private String ntColor;
-	public FallNode() {
-		super();
+
+	public double getnPoint() {
+		return nPoint;
 	}
-	public int getwId() {
-		return wId;
+	public void setnPoint(double nPoint) {
+		this.nPoint = nPoint;
 	}
-	public void setwId(int wId) {
-		this.wId = wId;
+	public LocalDateTime getnPointTime() {
+		return nPointTime;
 	}
-	public String getWord() {
-		return word;
-	}
-	public void setWord(String word) {
-		this.word = word;
+	public void setnPointTime(LocalDateTime nPointTime) {
+		this.nPointTime = nPointTime;
 	}
 	public int getnDrag() {
 		return nDrag;
@@ -27,18 +29,39 @@ public class FallNode {
 	public void setnDrag(int nDrag) {
 		this.nDrag = nDrag;
 	}
-	public int getNtId() {
+	public int getnState() {
+		return nState;
+	}
+	public void setnState(int nState) {
+		this.nState = nState;
+	}
+	public String getNtId() {
 		return ntId;
 	}
-	public void setNtId(int ntId) {
+	public void setNtId(String ntId) {
 		this.ntId = ntId;
 	}
-	public String getnColor() {
+	public LocalDateTime getnAddTime() {
+		return nAddTime;
+	}
+	public void setnAddTime(LocalDateTime nAddTime) {
+		this.nAddTime = nAddTime;
+	}
+	private LocalDateTime nAddTime;
+	public FallNode() {
+		super();
+	}
+	public String getwId() {
+		return wId;
+	}
+	public void setwId(String wId) {
+		this.wId = wId;
+	}
+	public String getNtColor() {
 		return ntColor;
 	}
-	public void setnColor(String nColor) {
-		this.ntColor = nColor;
+	public void setNtColor(String ntColor) {
+		this.ntColor = ntColor;
 	}
-	
 
 }
