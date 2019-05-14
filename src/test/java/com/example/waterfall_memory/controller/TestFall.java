@@ -13,6 +13,7 @@ import com.example.waterfall_memory.dao.AnalyseDao;
 import com.example.waterfall_memory.dao.FallDao;
 import com.example.waterfall_memory.dto.AvilableCount;
 import com.example.waterfall_memory.dto.FallNode;
+import com.example.waterfall_memory.entity.Node;
 import com.example.waterfall_memory.util.NoteResult;
 
 @RunWith(SpringRunner.class)
@@ -20,6 +21,8 @@ import com.example.waterfall_memory.util.NoteResult;
 public class TestFall {
 	@Autowired
 	private FallController con;
+	@Autowired
+	private NodeController nodecon;
 	
 	@Test
 	public void testFall() {
@@ -27,6 +30,13 @@ public class TestFall {
 		nr = con.inFall("qqq");
 		nr.printJSON();	
 	}
+	@Test
+	public void getMyNodes() {
+		NoteResult<List<Node>> nr = new NoteResult<List<Node>>();
+		nr = nodecon.getMyNodes("qqq");
+		nr.printJSON();	
+	}
 
+	
 	
 }

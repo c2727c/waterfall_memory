@@ -24,7 +24,7 @@ public class FallController {
 	//获取单词循环池//前端向后端请求所有正在记忆中的Node。（正在记忆中判断标准：记忆点数>0）
 	@RequestMapping("/infall.do")
 	public NoteResult<List<FallNode>> inFall(String openId) {
-		LocalDateTime time = LocalDateTime.of(2019, 5, 2, 16, 10, 00);//LocalDate.now();//FIXME 
+		LocalDateTime time = LocalDateTime.of(2019, 5, 26, 16, 10, 00);//LocalDate.now();//FIXME 
 		NoteResult<List<FallNode>> nr = new NoteResult<List<FallNode>>();
 		try {
 			nr.setAll(0,"success",service.getMyFall(openId, time));

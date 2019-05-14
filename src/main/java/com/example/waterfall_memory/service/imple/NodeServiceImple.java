@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.waterfall_memory.dao.FallDao;
 import com.example.waterfall_memory.dao.NodeDao;
+import com.example.waterfall_memory.dto.FallNode;
 import com.example.waterfall_memory.entity.Node;
 import com.example.waterfall_memory.service.NodeService;
 import com.example.waterfall_memory.util.NoteResult;
@@ -34,6 +35,12 @@ public class NodeServiceImple implements NodeService{
 			dao.deleteNode(n);
 		}
 		return null;
+	}
+
+	@Override
+	public List<Node> getMyNodes(String openId) {
+		// TODO Auto-generated method stub
+		return dao.getMyNodes(openId);
 	}
 
 }

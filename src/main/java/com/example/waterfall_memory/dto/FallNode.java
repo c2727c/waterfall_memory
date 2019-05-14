@@ -10,6 +10,7 @@ public class FallNode {
 	private int nState;
 	private String ntId;
 	private String ntColor;
+	private int length=5;
 
 	public double getnPoint() {
 		return nPoint;
@@ -62,6 +63,12 @@ public class FallNode {
 	}
 	public void setNtColor(String ntColor) {
 		this.ntColor = ntColor;
+	}
+	public int getLength() {
+		return length;
+	}
+	public void setLength(int length) {
+		this.length = length;
 	}
 
 }

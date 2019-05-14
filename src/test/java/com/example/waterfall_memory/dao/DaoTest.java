@@ -31,6 +31,10 @@ public class DaoTest {
 	public void testAnalyseDao() {
 		List<AvilableCount> list = analyseDao.dailyAvilable2(Date.valueOf("2019-03-25"));
 	}
+	@Test
+	public void infall() {
+		fallDao.getMyFall("qqq", LocalDateTime.of(2019, 5, 26, 16, 10, 00));
+	}
 	
 	@Test
 	public void addNode() {

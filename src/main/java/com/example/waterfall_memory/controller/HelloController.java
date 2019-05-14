@@ -25,8 +25,9 @@ public class HelloController {
 //	}
 	
 	@RequestMapping(name="/hello",method=RequestMethod.GET)
-	public String hello() {
-		String dateInString = "hello!";
-		return dateInString;
+	public String hello(String openid) {
+		String dateInString = openid;
+		System.err.println("aaaa"+openid);
+		return openid;
 	}
 }
