@@ -1,11 +1,12 @@
 package com.example.waterfall_memory.dto;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 public class FallNode {
 	private String wId;
 	private double nPoint;
-	private LocalDateTime nPointTime;
+	private Date nPointTime;
 	private int nDrag;
 	private int nState;
 	private String ntId;
@@ -18,10 +19,10 @@ public class FallNode {
 	public void setnPoint(double nPoint) {
 		this.nPoint = nPoint;
 	}
-	public LocalDateTime getnPointTime() {
+	public Date getnPointTime() {
 		return nPointTime;
 	}
-	public void setnPointTime(LocalDateTime nPointTime) {
+	public void setnPointTime(Date nPointTime) {
 		this.nPointTime = nPointTime;
 	}
 	public int getnDrag() {

@@ -9,7 +9,7 @@
 <mapper namespace="com.example.waterfall_memory.dao.NodeDao">
 	<select id="getMyNodes"
 		resultType="com.example.waterfall_memory.entity.Node">
-		SELECT node.wId,node.nPoint,node.nDrag,node.nState,node.ntId 
+		SELECT node.wId,node.nPoint,node.nDrag,node.nState,node.ntId
 		FROM  node_type NATURAL JOIN node NATURAL JOIN words 
 		WHERE openId = #{openId};
 	</select>

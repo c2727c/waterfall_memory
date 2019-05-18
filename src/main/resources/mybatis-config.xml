@@ -34,4 +34,5 @@
 		<typeHandler
 			handler="org.apache.ibatis.type.BlobTypeHandler" />
 	</typeHandlers>
+
 </configuration>

@@ -11,7 +11,7 @@
 	 -->
 	<select id="getMyFall"
 		resultType="com.example.waterfall_memory.dto.FallNode">
-		SELECT node.wId,node.nPoint,node.nDrag,node.nState,node.ntId 
+		SELECT node.wId,node.nPoint,node.nDrag,node.nState,node.ntId,node.nPointTime 
 		FROM  node_type NATURAL JOIN node NATURAL JOIN words 
 		WHERE openId = #{openId}
 		AND ((TIMESTAMPDIFF(SECOND,nPointTime,#{time}))/100-nPoint)>0;
