@@ -1,7 +1,7 @@
 package com.example.waterfall_memory.dto;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class FallNode {
 	private String wId;

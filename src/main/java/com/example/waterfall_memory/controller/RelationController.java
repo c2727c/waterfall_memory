@@ -2,6 +2,7 @@ package com.example.waterfall_memory.controller;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -49,6 +50,17 @@ public class RelationController {
 		NoteResult<List<Node>> nr = new NoteResult<List<Node>>();
 		try {
 			nr.setAll(0,"success",service.relaWords(openId,wId1));
+		} catch (Exception e) {
+			e.printStackTrace();
+			nr.setAll(-1, "error", null);
+		}
+		return nr;
+	}
+	@RequestMapping("/relaWords2.do")//返回相关词列表//1级/2级//关系
+	public NoteResult<Map<String,List<String>>> relaWords2(String openId,String wId1) {
+		NoteResult<Map<String,List<String>>> nr = new NoteResult<Map<String,List<String>>>();
+		try {
+			nr.setAll(0,"success",service.relaWords2(openId,wId1));
 		} catch (Exception e) {
 			e.printStackTrace();
 			nr.setAll(-1, "error", null);

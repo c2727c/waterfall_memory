@@ -56,7 +56,6 @@ public class DaoTest {
 	}
 	@Test
 	public void addRela() {
-//		relaDao.addRela(new Rela("qqq","abbreviation","abolish"));
 		relaDao.addRela(new Rela("qqq","abacus","abolish"));
 	}
 	@Test
@@ -71,7 +70,7 @@ public class DaoTest {
 	}
 	@Test//FIXME
 	public void relaWords() {
-		relaDao.relaWords("qqq","abolish");
+		relaDao.relaWords2("qqq","abolish","1");
 	}
 	
 	@Test

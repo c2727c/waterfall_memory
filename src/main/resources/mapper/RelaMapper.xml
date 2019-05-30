@@ -32,4 +32,14 @@
 	WHERE rela_user.wId1=#{wId1} AND rela_user.`openId`=#{openId}
 	AND node.wId=wId2 AND node.openId=rela_user.`openId`;
 	</select>
+	<select id="getRelaTypes"
+	resultType="String">
+	SELECT rtId FROM rela_type;
+	</select>
+	<select id="relaWords2"
+	resultType="String">
+	SELECT node.wId FROM rela_user,node
+	WHERE rela_user.wId1=#{wId1} AND rela_user.`openId`=#{openId}
+	AND node.wId=wId2 AND node.openId=rela_user.`openId`AND rela_user.rtId=#{rtId};
+	</select>
 </mapper>

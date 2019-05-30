@@ -1,6 +1,8 @@
 package com.example.waterfall_memory.service.imple;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -30,6 +32,16 @@ public class RelaServiceImple implements RelaService{
 	@Override
 	public List<Node> relaWords(String openId, String wId1) {
 		return dao.relaWords( openId, wId1);
+	}
+
+	@Override
+	public Map<String, List<String>> relaWords2(String openId, String wId1) {
+		Map<String, List<String>> map = new HashMap<String, List<String>>();
+		List<String> types = dao.getRelaTypes();
+		for(String type:types) {
+			map.put(type,dao.relaWords2(openId, wId1,type));
+		}
+		return null;
 	}
 
 }

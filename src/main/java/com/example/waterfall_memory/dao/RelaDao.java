@@ -18,4 +18,8 @@ public interface RelaDao {
 	//FIXME 
 	public List<Node> relaWords(@Param("openId")String openId, @Param("wId1")String wId1);
 
+	public List<String> getRelaTypes();
+
+	public List<String> relaWords2(@Param("openId")String openId, @Param("wId1")String wId1, @Param("rtId")String rtId);
+
 }
