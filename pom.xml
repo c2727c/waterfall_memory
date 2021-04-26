@@ -87,7 +87,7 @@
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
-			<version>2.5</version>
+			<version>2.7</version>
 		</dependency>
 		
 		<!-- 两个工具类中用到的依赖 加密解密 -->
